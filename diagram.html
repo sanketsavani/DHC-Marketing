@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Process Diagram — ScreenCraft</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,600;1,300&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-logo">SCREEN<span>CRAFT</span></div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="machines.html">Machines</a></li>
+      <li><a href="inks.html">Inks</a></li>
+      <li><a href="diagram.html" class="active">Diagram</a></li>
+    </ul>
+    <div class="nav-tag">Textile Edition 2025</div>
+  </nav>
+
+  <header class="page-hero page-hero--diagram">
+    <div class="page-hero-label">Chapter 03</div>
+    <h1 class="page-hero-title">THE PROCESS</h1>
+    <p class="page-hero-sub">From design file to finished garment — every step visualized.</p>
+  </header>
+
+  <!-- MAIN PROCESS DIAGRAM -->
+  <section class="section">
+    <div class="section-label">Full Workflow</div>
+    <h2 class="section-title">Screen Printing: End-to-End</h2>
+    <div class="diagram-wrap">
+      <div class="mermaid">
+flowchart TD
+    A([🎨 Artwork / Design File]) --> B[Separate Colors\nOne screen per color]
+    B --> C[Film Positives\nor CTS Direct Output]
+    C --> D[Screen Preparation\nStretch mesh on frame]
+    D --> E[Apply Emulsion\nCoat screen with photo emulsion]
+    E --> F[Expose Screen\nUV light burns in design]
+    F --> G[Wash Out Screen\nUnexposed emulsion washes away]
+    G --> H{Select Ink Type}
+
+    H -->|Plastisol| I1[Setup: Plastisol Press\nAdd ink to screen]
+    H -->|Water-Based| I2[Setup: Water-Based Press\nMonitor humidity]
+    H -->|Discharge| I3[Setup: Discharge Press\nAdd activator]
+    H -->|UV Ink| I4[UV Flatbed/Cylindrical\nRigid substrate]
+
+    I1 --> J[Print: Squeegee pulls ink\nthrough mesh onto garment]
+    I2 --> J
+    I3 --> J
+    I4 --> K[UV Curing\nUV lamps cure instantly]
+
+    J --> L{Multi-color?}
+    L -->|Yes| M[Flash Cure\nBetween each color layer]
+    M --> N[Next Color Station]
+    N --> J
+    L -->|No - last color| O[Final Print Done]
+
+    K --> O
+    O --> P[Conveyor Dryer\n300–330°F curing]
+    P --> Q{Quality Check}
+    Q -->|Pass| R[Fold, Tag & Pack]
+    Q -->|Fail| S[Reject / Reprint]
+    R --> T([✅ Finished Product Ready])
+
+    style A fill:#e8c547,color:#000,stroke:none
+    style T fill:#4ae8a0,color:#000,stroke:none
+    style H fill:#1a1a2e,color:#fff,stroke:#e8c547
+    style L fill:#1a1a2e,color:#fff,stroke:#e8c547
+    style Q fill:#1a1a2e,color:#fff,stroke:#e8c547
+    style S fill:#e84a4a,color:#fff,stroke:none
+    style M fill:#e87a4a,color:#fff,stroke:none
+    style K fill:#9b59b6,color:#fff,stroke:none
+      </div>
+    </div>
+  </section>
+
+  <!-- INK DECISION DIAGRAM -->
+  <section class="section alt-bg">
+    <div class="section-label">Decision Tree</div>
+    <h2 class="section-title">Which Ink Should You Use?</h2>
+    <div class="diagram-wrap">
+      <div class="mermaid">
+flowchart TD
+    START([What are you printing on?]) --> FA{Fabric?}
+
+    FA -->|Yes| FB{Cotton or Synthetic?}
+    FA -->|No - Rigid surface| UV[Use: UV-Curable Ink\nFor glass, plastic, metal, ceramics]
+
+    FB -->|Synthetic / Polyester| PLAST1[Use: Plastisol\nOnly ink that works on polyester]
+    FB -->|100% Cotton| FC{Light or Dark garment?}
+
+    FC -->|Light garment| FD{Soft hand or vibrant?}
+    FC -->|Dark garment| FE{Want vintage look?}
+
+    FD -->|Want soft, breathable| WB[Use: Water-Based Ink\nSoftest result, eco-friendly]
+    FD -->|Want vibrant, opaque| PLAST2[Use: Plastisol\nBold colors, exact Pantone]
+
+    FE -->|Yes — vintage, aged look| DISC[Use: Discharge Ink\nRemoves dye, softest on dark]
+    FE -->|No — want bold color| PLAST3[Use: Plastisol\nWith white underbase first]
+
+    FA -->|Special effect needed| FX[Use: Specialty FX Ink\nMetallic · Puff · Glow · Neon · 3D]
+
+    style START fill:#e8c547,color:#000,stroke:none
+    style UV fill:#e87a4a,color:#fff,stroke:none
+    style PLAST1 fill:#c8a820,color:#000,stroke:none
+    style PLAST2 fill:#c8a820,color:#000,stroke:none
+    style PLAST3 fill:#c8a820,color:#000,stroke:none
+    style WB fill:#4ab8e8,color:#000,stroke:none
+    style DISC fill:#4ae8a0,color:#000,stroke:none
+    style FX fill:#c04ae8,color:#fff,stroke:none
+      </div>
+    </div>
+  </section>
+
+  <!-- MACHINE DECISION DIAGRAM -->
+  <section class="section">
+    <div class="section-label">Decision Tree</div>
+    <h2 class="section-title">Which Machine Should You Buy?</h2>
+    <div class="diagram-wrap">
+      <div class="mermaid">
+flowchart TD
+    START([What is your business scale?]) --> SA{Volume per month?}
+
+    SA -->|Under 500 pieces| SB{Budget?}
+    SA -->|500–5,000 pieces| SC[Semi-Automatic Press\nPneumatic or Servo-driven]
+    SA -->|5,000+ pieces| SD{Fabric or rigid substrate?}
+
+    SB -->|Under ₹1 lakh| ENTRY[Manual 1-4 Color Press\nEntry-level startup]
+    SB -->|₹1–3 lakh| MAN[Manual 4–6 Color 6-Station\nProfessional manual setup]
+
+    SD -->|Fabric - apparel| AUTO[Fully Automatic Oval Press\nM&R · ROQ · Anatol]
+    SD -->|Bottles / rigid| CYL[Cylindrical / Flatbed Press\nUV or solvent-based]
+
+    ENTRY --> GROW{Planning to grow?}
+    GROW -->|Yes| MOD[Buy modular/expandable press\nAdd stations later]
+    GROW -->|No| STAY[Single-station is fine\nKeep it lean]
+
+    style START fill:#e8c547,color:#000,stroke:none
+    style AUTO fill:#4ab8e8,color:#000,stroke:none
+    style CYL fill:#e87a4a,color:#fff,stroke:none
+    style MOD fill:#4ae8a0,color:#000,stroke:none
+    style STAY fill:#bbb,color:#000,stroke:none
+      </div>
+    </div>
+  </section>
+
+  <!-- STEP TIMELINE -->
+  <section class="section alt-bg">
+    <div class="section-label">Step by Step</div>
+    <h2 class="section-title">The 10 Steps of Screen Printing</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="tl-num">01</div>
+        <div class="tl-content">
+          <h4>Artwork Preparation</h4>
+          <p>Design is separated by color. Each color becomes a separate film or CTS layer. Vector files are preferred for sharp edges.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="tl-num">02</div>
+        <div class="tl-content">
+          <h4>Screen / Frame Setup</h4>
+          <p>Mesh (polyester or nylon) is stretched over aluminum or wood frames. Mesh count is chosen based on detail level and ink type.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="tl-num">03</div>
+        <div class="tl-content">
+          <h4>Emulsion Coating</h4>
+          <p>Photo-sensitive emulsion is applied to the screen in a darkroom. The screen is dried flat.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="tl-num">04</div>
+        <div class="tl-content">
+          <h4>Screen Exposure</h4>
+          <p>Film positive (or CTS output) is placed on the screen and exposed to UV light. UV hardens emulsion in non-image areas.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="tl-num">05</div>
+        <div class="tl-content">
+          <h4>Screen Washout</h4>
+          <p>Unexposed emulsion (in the design areas) is washed out with water, leaving open mesh holes where ink will pass through.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="tl-num">06</div>
+        <div class="tl-content">
+          <h4>Press Setup & Registration</h4>
+          <p>Screens are mounted on the press. Registration marks ensure all color layers align perfectly on the garment.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="tl-num">07</div>
+        <div class="tl-content">
+          <h4>Printing</h4>
+          <p>Garment is placed on the platen. Ink is loaded onto the screen. Squeegee pulls ink across the mesh, pushing it through open areas onto the garment.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="tl-num">08</div>
+        <div class="tl-content">
+          <h4>Flash Curing (Multi-color)</h4>
+          <p>Between color layers, a flash cure unit partially cures each layer so the next color can be printed on top without smearing.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="tl-num">09</div>
+        <div class="tl-content">
+          <h4>Final Curing</h4>
+          <p>Printed garment passes through a conveyor dryer at 300–330°F. Ink fully cures and bonds permanently to the fabric.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="tl-num">10</div>
+        <div class="tl-content">
+          <h4>Quality Check & Packaging</h4>
+          <p>Each garment is inspected for registration, color accuracy, and cure quality. Passed items are folded, tagged, and packed for delivery.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-logo">SCREEN<span>CRAFT</span></div>
+    <p>Built for textile entrepreneurs. Open source knowledge.</p>
+    <p class="footer-small">Research compiled May 2025 · Shareable via GitHub Pages</p>
+  </footer>
+
+  <script src="main.js"></script>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: 'dark',
+      themeVariables: {
+        primaryColor: '#1a1a2e',
+        primaryTextColor: '#f5f0e8',
+        primaryBorderColor: '#e8c547',
+        lineColor: '#e8c547',
+        secondaryColor: '#16213e',
+        tertiaryColor: '#0f3460',
+        background: '#0d0d1a',
+        mainBkg: '#1a1a2e',
+        nodeBorder: '#e8c547',
+        clusterBkg: '#16213e',
+        titleColor: '#e8c547',
+        edgeLabelBackground: '#16213e',
+        fontFamily: 'DM Sans, sans-serif',
+        fontSize: '14px'
+      }
+    });
+  </script>
+</body>
+</html>
