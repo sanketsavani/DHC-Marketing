@@ -331,6 +331,10 @@ a { color: inherit; text-decoration: none; }
   background: radial-gradient(ellipse at 80% 50%, rgba(74,232,160,0.06) 0%, transparent 60%);
 }
 
+.page-hero--videos::after {
+  background: radial-gradient(ellipse at 80% 50%, rgba(232,74,90,0.07) 0%, transparent 60%);
+}
+
 .page-hero-label {
   font-family: var(--font-mono);
   font-size: 0.75rem;
@@ -936,6 +940,56 @@ a { color: inherit; text-decoration: none; }
 }
 
 .tl-content p { font-size: 0.88rem; color: var(--text-muted); line-height: 1.6; }
+
+/* ============================================
+   VIDEOS PAGE
+   ============================================ */
+.video-list {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(2rem, 5vw, 3rem);
+}
+
+.video-block-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.35rem, 3vw, 1.75rem);
+  color: var(--accent);
+  margin-bottom: 0.75rem;
+  letter-spacing: 0.02em;
+}
+
+.video-block-note {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  margin-bottom: 0.75rem;
+  max-width: 42ch;
+}
+
+.video-embed {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #0a0a12;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+
+.video-embed iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.video-embed--short {
+  aspect-ratio: 9 / 16;
+  max-width: min(100%, 380px);
+  margin-left: auto;
+  margin-right: auto;
+}
 
 /* ============================================
    FOOTER

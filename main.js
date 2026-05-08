@@ -49,7 +49,7 @@ document.querySelectorAll('.tab-btn').forEach(btn => {
 
 // Animate elements on scroll
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-const scrollAnimateEls = document.querySelectorAll('.overview-card, .machine-card, .ink-detail-card, .brand-card, .timeline-item');
+const scrollAnimateEls = document.querySelectorAll('.overview-card, .machine-card, .ink-detail-card, .brand-card, .timeline-item, .video-block');
 
 if (reduceMotion.matches) {
   scrollAnimateEls.forEach((el) => {
