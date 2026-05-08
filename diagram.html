@@ -85,12 +85,15 @@ flowchart TD
     <div class="diagram-wrap">
       <div class="mermaid">
 flowchart TD
-    START([What are you printing on?]) --> FA{Fabric?}
+    START([What are you printing?]) --> SE{Specialty effect?\nMetallic · Puff · Glow · etc.}
+
+    SE -->|Yes| FX[Use: Specialty FX Ink\nMetallic · Puff · Glow · Neon · 3D]
+    SE -->|No| FA{Fabric?}
 
     FA -->|Yes| FB{Cotton or Synthetic?}
     FA -->|No - Rigid surface| UV[Use: UV-Curable Ink\nFor glass, plastic, metal, ceramics]
 
-    FB -->|Synthetic / Polyester| PLAST1[Use: Plastisol\nOnly ink that works on polyester]
+    FB -->|Synthetic / Polyester| PLAST1[Use: Plastisol\nStandard for polyester screen printing\n(sublimation is a different process)]
     FB -->|100% Cotton| FC{Light or Dark garment?}
 
     FC -->|Light garment| FD{Soft hand or vibrant?}
@@ -102,9 +105,8 @@ flowchart TD
     FE -->|Yes — vintage, aged look| DISC[Use: Discharge Ink\nRemoves dye, softest on dark]
     FE -->|No — want bold color| PLAST3[Use: Plastisol\nWith white underbase first]
 
-    FA -->|Special effect needed| FX[Use: Specialty FX Ink\nMetallic · Puff · Glow · Neon · 3D]
-
     style START fill:#e8c547,color:#000,stroke:none
+    style SE fill:#1a1a2e,color:#fff,stroke:#e8c547
     style UV fill:#e87a4a,color:#fff,stroke:none
     style PLAST1 fill:#c8a820,color:#000,stroke:none
     style PLAST2 fill:#c8a820,color:#000,stroke:none
